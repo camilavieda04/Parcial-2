@@ -16,7 +16,11 @@
 		FROM AIRLINE
     </select>
     
+   
+    
     <insert id="save" parameterType="Airline">
     	INSERT INTO AIRLINE (codigo, nombre, web_page, pais) VALUES (#{codigo}, #{nombre}, #{web_page}, #{pais} )
     </insert>
+    
+    
 </mapper>

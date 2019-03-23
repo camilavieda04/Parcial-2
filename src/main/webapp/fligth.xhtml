@@ -24,6 +24,14 @@
 		<p:column headerText="Duracion">
 			<h:outputText value="#{fligth.duracion}" />
 		</p:column>
+		<p:column headerText="Pasajeros">
+			<p:button outcome="passenger" value="Ver Pasajeros">
+				<f:param name="fligth" value="#{fligth.codigo}"/>
+				<f:param name="fligthorigen" value="#{fligth.origen}"/>
+				<f:param name="fligthdestino" value="#fligth.destino"/>
+				<f:param name="fligthduracion" value="#fligth.duracion"/>
+			</p:button>
+		</p:column>
 	</p:dataTable>
 </h:body>
 </html>

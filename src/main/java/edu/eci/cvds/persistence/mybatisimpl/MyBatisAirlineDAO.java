@@ -34,23 +34,33 @@ public class MyBatisAirlineDAO implements AirlineDAO {
 
 	@Override
 	public void addFligth(int airlineId, Fligth fligth) throws PersistenceException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		airlineMapper.addFligth(airlineId, fligth);
 
 	}
 
 	@Override
 	public Airline load(int airlineID) throws PersistenceException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		try {
+			return airlineMapper.consultarAirline(airlineID);
+		}
+		catch(org.apache.ibatis.exceptions.PersistenceException e) {
+			throw new PersistenceException("Error al consultar la aerolinea"+airlineID,e);
+		}
 	}
 
 	@Override
 	public Airline load(String nombre) throws PersistenceException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		try {
+			return airlineMapper.consultarAirline(nombre);
+		}
+		catch(org.apache.ibatis.exceptions.PersistenceException e) {
+			throw new PersistenceException("Error al consultar la aerolinea"+nombre,e);
+		}
 	}
 
 	@Override
 	public List<Airline> loadByPais(String pais) throws PersistenceException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		return airlineMapper.findByPais(pais);
 	}
 
 }

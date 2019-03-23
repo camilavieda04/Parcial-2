@@ -12,7 +12,7 @@ public List<Fligth> loadAll() throws PersistenceException;
     
     public void update(Fligth a) throws PersistenceException;
     
-    public void addPassenger(int FligthId, Passenger passeenger) throws PersistenceException;
+    public void addPassenger(String FligthId, Passenger passeenger) throws PersistenceException;
     
     public Fligth load(int fligthCod) throws PersistenceException;
 

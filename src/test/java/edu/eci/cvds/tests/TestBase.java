@@ -8,8 +8,10 @@ import com.google.inject.Injector;
 
 import edu.eci.cvds.persistence.AirlineDAO;
 import edu.eci.cvds.persistence.FligthDAO;
+import edu.eci.cvds.persistence.PassengerDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisAirlineDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisFligthDAO;
+import edu.eci.cvds.persistence.mybatisimpl.MyBatisPassengerDAO;
 import edu.eci.cvds.services.FligthServices;
 import edu.eci.cvds.services.impl.FligthServicesImpl;
 
@@ -25,6 +27,7 @@ public class TestBase {
                 bind(FligthServices.class).to(FligthServicesImpl.class);
                 bind(AirlineDAO.class).to(MyBatisAirlineDAO.class);
                 bind(FligthDAO.class).to(MyBatisFligthDAO.class);
+                bind(PassengerDAO.class).to(MyBatisPassengerDAO.class);
             }
     });
 	

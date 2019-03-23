@@ -11,36 +11,41 @@ import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.FligthMapper;
 
 public class MyBatisFligthDAO implements FligthDAO {
-	
+	Passenger passenger;
+	Fligth codigo;
 	@Inject
 	FligthMapper fligthmapper;
 
 	@Override
 	public List<Fligth> loadAll() throws PersistenceException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		return fligthmapper.getAll();
 	}
 
 	@Override
 	public void save(Fligth a) throws PersistenceException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		fligthmapper.save(a);
 
 	}
 
 	@Override
 	public void update(Fligth a) throws PersistenceException {
-		throw new UnsupportedOperationException("Not supported yet.");
-
 	}
 
 	@Override
-	public void addPassenger(int FligthId, Passenger passeenger) throws PersistenceException {
-		throw new UnsupportedOperationException("Not supported yet.");
+	public void addPassenger(String FligthId, Passenger passeenger) throws PersistenceException {
+		fligthmapper.addPassenger(FligthId, passenger);
 
 	}
 
 	@Override
 	public Fligth load(int fligthCod) throws PersistenceException {
-		throw new UnsupportedOperationException("Not supported yet.");
+	try {
+		return fligthmapper.consultarFligth(fligthCod);
+	}
+	catch(org.apache.ibatis.exceptions.PersistenceException e) {
+		throw new PersistenceException("Error al consultar el vuelo"+fligthCod,e);
+	}
+		
 	}
 
 	@Override

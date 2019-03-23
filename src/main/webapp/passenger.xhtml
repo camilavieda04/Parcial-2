@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<h1>Pasajeros de #{passengerBean.fligthCodigo}</h1>	
+	<p:button outcome="fligth" value="Regresar a Fligth" />
+	<p:dataTable id="passenger_table" var="passenger" value="#{passengerBean.data}">
+		<p:column headerText="tipo_id">
+			<h:outputText value="#{passenger.tipo_id}" />
+		</p:column>
+		<p:column headerText="no_id">
+			<h:outputText value="#{passenger.no_id}" />
+		</p:column>
+		<p:column headerText="nombre">
+			<h:outputText value="#{passenger.nombre}" />
+		</p:column>
+		<p:column headerText="apellido">
+			<h:outputText value="#{passenger.apellido}" />
+		</p:column>
+		<p:column headerText="telefono">
+			<h:outputText value="#{passenger.telefono}" />
+		</p:column>
+		<p:column headerText="Informacion">
+			<p:button outcome="informacion" value="Ver Informacion">
+				<f:param name="passenger" value="#{passenger.tipo_id}"/>
+				<f:param name="passengernoid" value="#{passenger.no_id}"/>
+				<f:param name="passengernombre" value="#{passenger.nombre}"/>
+				<f:param name="passengerapellido" value="#{passenger.apellido}"/>
+				<f:param name="passengertelefono" value="#{passenger.telefono}"/>
+			</p:button>
+		</p:column>
+</p:dataTable>
+</h:body>
+</html>

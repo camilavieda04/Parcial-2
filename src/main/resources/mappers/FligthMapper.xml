@@ -18,4 +18,12 @@
 		WHERE airline = #{airline}
     </select>
     
+     <select id="findByAirline" resultMap="FligthResult" parameterType="int">
+    	SELECT codigo,origen,destino,duracion
+    	FROM FLIGTH
+    	WHERE origen=#{origen} OR destino=#{destino} OR origen like #{origen} OR destino like #{destino}
+        ORDER BY duracion DESC
+    
+    </select>
+    
 </mapper>
