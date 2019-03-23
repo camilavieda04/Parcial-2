@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.AirlineMapper">
+
+    <resultMap type='Airline' id='AirlineResult'>
+        <id property='codigo' column='codigo'/>        
+        <result property='nombre' column='nombre'/>
+        <result property='pais' column='pais'/>
+    </resultMap>
+
+    <select id="getAll" resultMap="AirlineResult">
+        SELECT *
+		FROM AIRLINE
+    </select>
+    
+    <insert id="save" parameterType="Airline">
+    	INSERT INTO AIRLINE (codigo, nombre, web_page, pais) VALUES (#{codigo}, #{nombre}, #{web_page}, #{pais} )
+    </insert>
+</mapper>

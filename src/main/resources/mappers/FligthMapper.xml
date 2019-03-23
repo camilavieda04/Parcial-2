@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.FligthMapper">
+
+    <resultMap type='Fligth' id='FligthResult'>
+        <id property='codigo' column='codigo'/>        
+        <result property='origen' column='origen'/>
+        <result property='destino' column='destino'/>
+        <result property='duracion' column='duracion'/>
+    </resultMap>
+
+    <select id="findByAirline" resultMap="FligthResult" parameterType="int">
+        SELECT codigo, origen, destino, duracion
+		FROM FLIGTH
+		WHERE airline = #{airline}
+    </select>
+    
+</mapper>
