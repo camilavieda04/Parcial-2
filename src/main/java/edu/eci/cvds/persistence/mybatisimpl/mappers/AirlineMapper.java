@@ -21,4 +21,6 @@ public interface AirlineMapper {
 	
 	Airline consultarAirline(int airlineID);
 
+	void AddNewAirline(Airline airline);
+
 }

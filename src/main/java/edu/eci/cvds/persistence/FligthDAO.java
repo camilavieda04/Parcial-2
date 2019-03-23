@@ -18,4 +18,5 @@ public List<Fligth> loadAll() throws PersistenceException;
 
     public List<Fligth> loadByAirline(int airline) throws PersistenceException;
 
+    public List<Fligth> loadByPlace(String place) throws PersistenceException;
 }

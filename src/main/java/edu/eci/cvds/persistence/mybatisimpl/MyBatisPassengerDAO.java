@@ -29,8 +29,18 @@ public class MyBatisPassengerDAO implements PassengerDAO{
 
 	@Override
 	public List<Passenger> loadAll() throws PersistenceException {
-		// TODO Auto-generated method stub
-		return null;
+		return passengerMapper.getAll();
+	}
+
+	@Override
+	public void addNewPassenger(Fligth vuelo, Passenger pasajero) {
+		passengerMapper.addNewPassenger(vuelo,pasajero);
+	}
+
+	@Override
+	public void save(Fligth vuelo, Passenger pasajero) throws PersistenceException {
+		passengerMapper.save(vuelo,pasajero);
+		
 	}
 
 	

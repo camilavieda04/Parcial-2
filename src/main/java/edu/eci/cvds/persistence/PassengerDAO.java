@@ -14,6 +14,10 @@ public interface PassengerDAO {
 	public void save (Passenger p) throws PersistenceException;
 
 	List<Passenger> loadByFligth(String fligth) throws PersistenceException;
+
+	public void addNewPassenger(Fligth vuelo, Passenger pasajero);
+
+	public void save(Fligth vuelo, Passenger pasajero) throws PersistenceException;
 	
 	
 

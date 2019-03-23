@@ -16,4 +16,6 @@ public interface FligthMapper {
 	void addPassenger(String fligthId, Passenger passenger);
 	
 	Fligth consultarFligth(int fligthCod);
+
+	List<Fligth> findByPlace(String place);
 }

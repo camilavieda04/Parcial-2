@@ -19,6 +19,9 @@ public class FligthServicesImpl implements FligthServices {
 	@Inject
 	private FligthDAO fligthDAO;
 	
+	@Inject
+	private PassengerDAO passengerDAO;
+	
 
 	@Override
 	public List<Airline> listAirlines() throws ServicesException {
@@ -40,23 +43,44 @@ public class FligthServicesImpl implements FligthServices {
 
 	@Override
 	public void addNewPassenger(Fligth vuelo, Passenger pasajero) throws ServicesException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		try {
+			 passengerDAO.save(vuelo,pasajero);
+		}
+		catch(PersistenceException ex) {
+			throw new ServicesException("Create user error: " + ex.getLocalizedMessage(),ex);
+		}
 
 	}
 
 	@Override
 	public List<Fligth> listAllFligths() throws ServicesException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		try {
+			return fligthDAO.loadAll();
+		
+		}
+		catch(PersistenceException ex) {
+			throw new ServicesException("Create user error: " + ex.getLocalizedMessage(),ex);
+		}
 	}
 
 	@Override
 	public List<Passenger> listPassengerByFligth(String fligtg) throws ServicesException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		try {
+			return passengerDAO.loadByFligth(fligtg);
+		}
+		catch(PersistenceException ex) {
+			throw new ServicesException("Create user error: "+ ex.getLocalizedMessage(),ex);
+		}
 	}
 
 	@Override
 	public List<Fligth> listFligthByPlace(String place) throws ServicesException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		try {
+			return fligthDAO.loadByPlace(place);
+		}
+		catch(PersistenceException ex) {
+			throw new ServicesException("Create user error: "+ex.getLocalizedMessage(),ex);
+		}
 	}
 
 	@Override

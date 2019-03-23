@@ -53,4 +53,9 @@ public class MyBatisFligthDAO implements FligthDAO {
 		return fligthmapper.findByAirline(airline); 
 	}
 
+	@Override
+	public List<Fligth> loadByPlace(String place) throws PersistenceException {
+		return fligthmapper.findByPlace(place);
+	}
+
 }

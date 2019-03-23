@@ -62,5 +62,10 @@ public class MyBatisAirlineDAO implements AirlineDAO {
 	public List<Airline> loadByPais(String pais) throws PersistenceException {
 		return airlineMapper.findByPais(pais);
 	}
+	
+	public void AddNewAirline (Airline airline) throws PersistenceException{
+		airlineMapper.AddNewAirline(airline);
+	}
+	
 
 }

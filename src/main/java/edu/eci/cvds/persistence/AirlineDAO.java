@@ -20,5 +20,7 @@ public interface AirlineDAO {
     public Airline load(String nombre) throws PersistenceException;
 
     public List<Airline> loadByPais(String pais) throws PersistenceException;
+    
+    
 
 }
