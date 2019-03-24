@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.PassengerMapper">
+  
+  <resultMap type='Passenger' id='PassengerResult'>
+  	<id property='no_id' column='no_id'/>
+  	<result property='tipo_id' column='tipo_id'/>
+  	<result property='nombre' column='nombre'/>
+  	<result property='apellido' column='apellido'/>
+  	<result property='telefono' column='telefono'/>
+  
+ </resultMap>
+ 	
+ 	<select id='findByFligth' resultMap='PassengerResult' parameterType="String">
+ 		SELECT no_id,tipo_id,nombre,apellido,telefono
+ 		FROM PASSENGER
+ 		WHERE fligth= #{fligth}
+ 		
+ 	</select>
+ 	
+ 	<insert id="save" parameterType="Passenger">
+ 		INSERT INTO PASSENGER(tipo_id,no_id,nombre,apellido,telefono) VALUES (#{tipo_id},#{no_id},#{nombre},#{apellido},#{telefono})
+ 	</insert>
+ </mapper>
+ 

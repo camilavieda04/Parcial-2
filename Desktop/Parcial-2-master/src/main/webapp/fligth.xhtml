@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<h1>Vuelos de #{fligthBean.airlineName}</h1>
+	<p:button outcome="airline" value="Regresar a Airline" />
+	<h:form>
+	<p:dataTable id="fligth_table" var="fligth" value="#{fligthBean.data}">
+		<p:column headerText="Codigo">
+			<h:outputText value="#{fligth.codigo}" />
+		</p:column>
+		<p:column headerText="Origen">
+			<h:outputText value="#{fligth.origen}" />
+		</p:column>
+		<p:column headerText="Destino">
+			<h:outputText value="#{fligth.destino}" />
+		</p:column>
+		<p:column headerText="Duracion">
+			<h:outputText value="#{fligth.duracion}" />
+		</p:column>
+		<p:column headerText="Pasajeros">
+			<p:button outcome="passenger" value="Ver Pasajeros">
+				<f:param name="fligth" value="#{fligth.codigo}"/>
+				<f:param name="fligthorigen" value="#{fligth.origen}"/>
+				<f:param name="fligthdestino" value="#fligth.destino"/>
+				<f:param name="fligthduracion" value="#fligth.duracion"/>
+			</p:button>
+		</p:column>
+	</p:dataTable>
+		<table>
+		<tr><td colspan="2">Regitro de un nuevo vuelo</td></tr>
+		<tr><td>Nombre</td><td><h:inputText value="#{fligthBean.place}"></h:inputText></td></tr>
+		<tr><td colspan="2"><h:commandLink actionListener="#{fligthBean.listFligthByPlace(flightBean.place)}">Buscar Vuelo.</h:commandLink></td></tr>
+	</table>
+	</h:form>
+</h:body>
+</html>
+
